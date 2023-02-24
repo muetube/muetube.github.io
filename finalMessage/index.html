@@ -35,9 +35,11 @@
                 setTimeout(function(){
                     if(doesJSBridgeExist()){
                         if (userCurrentAppVersion != "5.0.9") {
+                            console.log(`userCurrentAppVersion 1 ${userCurrentAppVersion}`);
                             javascript: AndroidImpMessage.gAPB('505download', '', false, 'show505DownloadError');
                         }
                         else {
+                          console.log(`userCurrentAppVersion 2 ${userCurrentAppVersion}`);
                             javascript: AndroidImpMessage.gAPB('finmsg1', '', false, 'popupateMessages');
                         }
                     }
@@ -51,9 +53,11 @@
 
         function show505DownloadError(hasShown) {
             if (!hasShown) {
+              console.log(`userCurrentAppVersion 3 ${userCurrentAppVersion}`);
                 window.location.href = "https://muetube.github.io/newUpdate";
             }
             else {
+              console.log(`userCurrentAppVersion 4 ${userCurrentAppVersion}`);
                 javascript: AndroidImpMessage.gAPB('finmsg1', '', false, 'popupateMessages');
             }
         }
