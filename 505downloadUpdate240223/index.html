@@ -1,0 +1,481 @@
+<html>
+	<script>
+		var userIso3LanguageCode = "";
+	</script>
+	<head></head>
+	<body>
+		<script>
+			function doesJSBridgeExist() {
+				if (window.AndroidImpMessage) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+			function setupOnLoad() {
+				if (
+					document.readyState === "interactive" ||
+					document.readyState === "complete"
+				) {
+					doOnLoad();
+				} else {
+					window.addEventListener("load", function () {
+						doOnLoad();
+					});
+				}
+			}
+			setupOnLoad();
+
+			function doOnLoad() {
+				if (window.navigator.onLine) {
+					setTimeout(function () {
+						if (doesJSBridgeExist()) {
+							javascript: AndroidImpMessage.gAPB(
+								"505download",
+								"",
+								false,
+								"popupateMessages"
+							);
+						} else {
+							popupateMessages(false);
+						}
+					}, 3000);
+				}
+			}
+
+			function popupateMessages(hasShown) {
+				if (hasShown) {
+					return;
+				}
+
+				var androidLanguageMapping = [
+					"ara",
+					"aze",
+					"bul",
+					"ben",
+					"bos",
+					"cat",
+					"ces",
+					"dan",
+					"deu",
+					"ell",
+					"spa",
+					"est",
+					"fas",
+					"fin",
+					"fil",
+					"fra",
+					"hin",
+					"hrv",
+					"hun",
+					"ind",
+					"ita",
+					"heb",
+					"jpn",
+					"kat",
+					"khm",
+					"kor",
+					"lao",
+					"lit",
+					"lav",
+					"mkd",
+					"mon",
+					"mar",
+					"msa",
+					"mya",
+					"nob",
+					"nld",
+					"pan",
+					"pol",
+					"por",
+					"ron",
+					"rus",
+					"slk",
+					"slv",
+					"sqi",
+					"srp",
+					"swe",
+					"swa",
+					"tel",
+					"tha",
+					"tur",
+					"ukr",
+					"uzb",
+					"vie",
+					"zho",
+				];
+
+				let indexOfLanguage = androidLanguageMapping.indexOf(
+					userIso3LanguageCode.toLowerCase()
+				);
+
+				var messages = [
+					[
+						"إذا كنت تواجه مشكلات مع MueTube ، فيرجى تنزيل وتثبيت أحدث Verion 5.0.9 من www.MueTube.com",
+						"قبل التثبيت/الترقية إلى أحدث إصدار ، قد يتم مسح قائمة انتظار الأغاني الحالية الخاصة بك ، آسف على أي إزعاج تسبب",
+						"إذا كان لديك أي مشكلات ، فيرجى الاتصال بـ support@muetube.com",
+					],
+
+					[
+						"MueTube ilə problem yaşayırsınızsa, lütfən, www.MueTube.com saytından ən son Verion 5.0.9 yükləyin və quraşdırın",
+						"Ən son versiyaya yükləməzdən / təkmilləşdirmədən əvvəl, hazırkı mahnı növbəniz təmizlənə bilər, yaranan narahatlıq üçün üzr istəyirik",
+						"Hər hansı bir probleminiz varsa, support@muetube.com ilə əlaqə saxlayın",
+					],
+
+					[
+						"Ако изпитвате проблеми с MueTube, моля, изтеглете и инсталирайте най -новата Verion 5.0.9 от www.MueTube.com",
+						"Преди да инсталирате/надстроите до най -новата версия, текущата ви опашка за песни може да се изчисти, съжалявам за причинените неудобства",
+						"Ако имате проблеми, моля, свържете се с support@muetube.com",
+					],
+
+					[
+						"আপনি যদি মিউটিউবের সাথে সমস্যাগুলি অনুভব করছেন তবে দয়া করে www.MueTube.com থেকে সর্বশেষতম ভেরিয়ন 5.0.9 ডাউনলোড করুন এবং ইনস্টল করুন",
+						"আপনি সর্বশেষ সংস্করণে ইনস্টল/আপগ্রেড করার আগে, আপনার বর্তমান গানের সারিটি পরিষ্কার হয়ে যেতে পারে, যে কোনও অসুবিধার জন্য দুঃখিত",
+						"আপনার যদি কোনও সমস্যা থাকে তবে দয়া করে সমর্থন@MueTube.com এ যোগাযোগ করুন",
+					],
+
+					[
+						"Ako imate problema sa MueTubeom, preuzmite i instalirajte najnoviji Verion 5.0.9 s www.MueTube.com",
+						"Prije nego što instalirate / nadogradite na najnoviju verziju, vaš trenutni red pjesme može se očistiti, izvinite zbog neugodnosti",
+						"Ako imate bilo kakvih problema, obratite se podrškom@MueTube.com",
+					],
+
+					[
+						"Si teniu problemes amb MueTube, descarregueu i instal·leu el més recent Verion 5.0.9 de www.MueTube.com",
+						"Abans d’instal·lar/actualitzar a la versió més recent, es pot esborrar la cua de cançons actual, disculpeu les molèsties causades",
+						"Si teniu problemes, poseu -vos en contacte amb support@muetube.com",
+					],
+
+					[
+						"Pokud máte problémy s MueTubem, stáhněte si a nainstalujte nejnovější Verion 5.0.9 z www.MueTube.com",
+						"Před instalací/upgradem na nejnovější verzi se může vaše aktuální fronta skladby vyčistit, omlouvám se za případné nepříjemnosti",
+						"Pokud máte nějaké problémy, kontaktujte prosím support@muetube.com",
+					],
+
+					[
+						"Hvis du oplever problemer med MueTube, skal du downloade og installere den nyeste Verion 5.0.9 fra www.MueTube.com",
+						"Før du installerer/opgraderer til den nyeste version, kan din nuværende sangkø muligvis blive ryddet, undskyld for ulejligheden",
+						"Hvis du har problemer, skal du kontakte support@muetube.com",
+					],
+
+					[
+						"Wenn Sie Probleme mit MueTube haben, laden Sie bitte die neuesten Verion 5.0.9 von www.MueTube.com herunter und installieren Sie sie",
+						"Bevor Sie auf die neueste Version installieren/upgraden, wird Ihre aktuelle Song -Warteschlange möglicherweise geklärt. Entschuldigen Sie die verursachten Unannehmlichkeiten",
+						"Wenn Sie Probleme haben, wenden Sie sich bitte an support@muetube.com",
+					],
+
+					[
+						"Εάν αντιμετωπίζετε προβλήματα με το MueTube, κατεβάστε και εγκαταστήστε το τελευταίο Verion 5.0.9 από το www.MueTube.com",
+						"Πριν εγκαταστήσετε/αναβαθμίσετε στην τελευταία έκδοση, η τρέχουσα ουρά τραγουδιού σας μπορεί να καθαριστεί, συγνώμη για την αναστάτωση που προκαλείται",
+						"Εάν έχετε προβλήματα, επικοινωνήστε με το support@muetube.com",
+					],
+
+					[
+						"Si está experimentando problemas con MueTube, descargue e instale la última verion 5.0.9 desde www.MueTube.com",
+						"Antes de instalar/actualizar a la última versión, su cola de canciones actual puede eliminarse, lo siento por cualquier inconveniente causado",
+						"Si tiene algún problema, comuníquese con support@muetube.com",
+					],
+
+					[
+						"Kui teil on MueTube'iga probleeme, laadige ja installige uusim Verion 5.0.9 saidilt www.MueTube.com",
+						"Enne uusima versiooni installimist/uuendamist võib teie praegune laulujärjekord kustutada, vabandust võimalike ebamugavuste pärast",
+						"Kui teil on probleeme, võtke ühendust aadressil support@muetube.com",
+					],
+
+					[
+						"اگر در مورد MueTube مشکل دارید ، لطفاً آخرین Verion 5.0.9 را از www.MueTube.com بارگیری و نصب کنید",
+						"قبل از نصب/به روزرسانی به آخرین نسخه ، صف آهنگ فعلی شما ممکن است پاک شود ، با عرض پوزش برای هرگونه ناراحتی ایجاد شده",
+						"اگر مشکلی دارید ، لطفا با support@muetube.com تماس بگیرید",
+					],
+
+					[
+						"Jos sinulla on ongelmia MueTube -ongelmia, lataa ja asenna uusin Verion 5.0.9 -sivustolta osoitteesta www.MueTube.com",
+						"Ennen kuin asennat/päivität uusimpaan versioon, nykyinen kappalejono voi selvittää, anteeksi aiheutuneista haitoista",
+						"Jos sinulla on ongelmia, ota yhteyttä support@muetube.com",
+					],
+
+					[
+						"Kung nakakaranas ka ng mga isyu sa MueTube, mangyaring i -download at i -install ang pinakabagong Verion 5.0.9 mula sa www.MueTube.com",
+						"Bago ka mag -install/mag -upgrade sa pinakabagong bersyon, maaaring ma -clear ang iyong kasalukuyang pila ng kanta, paumanhin para sa anumang abala na sanhi",
+						"Kung mayroon kang anumang mga isyu, mangyaring makipag -ugnay sa support@muetube.com",
+					],
+
+					[
+						"Si vous rencontrez des problèmes avec MueTube, veuillez télécharger et installer la dernière Verion 5.0.9 sur www.MueTube.com",
+						"Avant d'installer / passer à la dernière version, votre file d'attente de chansons actuelle peut être effacée, désolé pour tout inconvénient causé",
+						"Si vous avez des problèmes, veuillez contacter support@muetube.com",
+					],
+
+					[
+						"यदि आप MueTube के साथ मुद्दों का अनुभव कर रहे हैं, तो कृपया www.MueTube.com से नवीनतम verion 5.0.9 डाउनलोड करें और इंस्टॉल करें",
+						"नवीनतम संस्करण में स्थापित/अपग्रेड करने से पहले, आपकी वर्तमान गीत कतार को साफ किया जा सकता है, किसी भी असुविधा के लिए क्षमा करें",
+						"यदि आपके पास कोई समस्या है, तो कृपया support@muetube.com पर संपर्क करें",
+					],
+
+					[
+						"Ako imate problema s MueTubeom, preuzmite i instalirajte najnoviji Verion 5.0.9 s www.MueTube.com",
+						"Prije nego što instalirate/nadogradite na najnoviju verziju, vaš trenutni red pjesama može se očistiti, oprostite na uzrokovanju neugodnosti",
+						"Ako imate bilo kakvih problema, molimo kontaktirajte support@muetube.com",
+					],
+
+					[
+						"Ha problémákat tapasztal a MueTube -szal, kérjük, töltse le és telepítse a legújabb 5.0.9 verziót a www.MueTube.com webhelyről",
+						"Mielőtt telepítené/frissítené a legújabb verzióra, az aktuális dal sorát megtisztíthatja, elnézést az esetleges kellemetlenségekért",
+						"Ha bármilyen problémája van, kérjük, vegye fel a kapcsolatot a support@muetube.com oldalra",
+					],
+
+					[
+						"Jika Anda mengalami masalah dengan MueTube, silakan unduh dan instal Verion 5.0.9 terbaru dari www.MueTube.com",
+						"Sebelum Anda menginstal/memutakhirkan ke versi terbaru, antrian lagu Anda saat ini dapat dibersihkan, maaf atas ketidaknyamanan yang disebabkan",
+						"Jika Anda memiliki masalah, silakan hubungi support@muetube.com",
+					],
+
+					[
+						"Se stai riscontrando problemi con MueTube, scarica e installa l'ultimo Verion 5.0.9 da www.MueTube.com",
+						"Prima di installare/aggiornare all'ultima versione, la tua coda attuale della canzone potrebbe essere cancellata, ci scusiamo per gli eventuali inconvenienti causati",
+						"In caso di problemi, contattare support@muetube.com",
+					],
+
+					[
+						"אם אתה נתקל בבעיות עם MueTube, אנא הורד והתקן את Verion 5.0.9 האחרון מ- www.MueTube.com",
+						"לפני שתתקין/שדרג לגירסה האחרונה, תור השירים הנוכחי שלך עשוי להתיר, סליחה על אי הנוחות שנגרמה",
+						"אם יש לך בעיות, אנא צור קשר עם support@muetube.com",
+					],
+
+					[
+						"MueTubeの問題が発生している場合は、www.MueTube.comから最新のVerion 5.0.9をダウンロードしてインストールしてください。",
+						"最新バージョンにインストール/アップグレードする前に、現在の曲のキューがクリアされる可能性があります。ご不便をおかけして申し訳ありません",
+						"問題がある場合は、support@muetube.comにお問い合わせください",
+					],
+
+					[
+						"თუ თქვენ განიცდით პრობლემებს MueTube– სთან, გთხოვთ, ჩამოტვირთოთ და დააინსტალიროთ უახლესი Verion 5.0.9 www.MueTube.com– დან",
+						"სანამ უახლეს ვერსიას დააინსტალირებთ/განახლებას, თქვენი ამჟამინდელი სიმღერის რიგები შეიძლება გაირკვეს, ბოდიში გამოწვეული უხერხულობისთვის",
+						"თუ თქვენ გაქვთ რაიმე პრობლემა, გთხოვთ, დაუკავშირდეთ support@muetube.com",
+					],
+
+					[
+						"ប្រសិនបើអ្នកកំពុងជួបប្រទះបញ្ហាជាមួយ MueTube សូមទាញយកនិងតំឡើង Vere OceX 5.0.9 ពី www.MueTube.com",
+						"មុនពេលអ្នកដំឡើង / ធ្វើឱ្យប្រសើរឡើងទៅកំណែចុងក្រោយបំផុតជួរបច្ចុប្បន្នរបស់អ្នកអាចត្រូវបានជម្រះសូមអភ័យទោសចំពោះភាពរអាក់រអួលដែលបណ្តាលមកពី",
+						"ប្រសិនបើអ្នកមានបញ្ហាណាមួយសូមទាក់ទង support@muetube.com",
+					],
+
+					[
+						"MueTube에 문제가있는 경우 www.MueTube.com에서 최신 Verion 5.0.9를 다운로드하여 설치하십시오.",
+						"최신 버전으로 설치/업그레이드하기 전에 현재 노래 대기열이 지워질 수 있습니다. 불편을 끼쳐 드려 죄송합니다.",
+						"문제가 있으시면 support@muetube.com에 문의하십시오",
+					],
+
+					[
+						"ຖ້າທ່ານກໍາລັງປະສົບບັນຫາກັບ MUETUP, ກະລຸນາດາວໂຫລດແລະຕິດຕັ້ງລ້າສຸດ 5.0.9 ຈາກ www.MueTube.com",
+						"ກ່ອນທີ່ທ່ານຈະຕິດຕັ້ງ / ຍົກລະດັບໃຫ້ກັບລຸ້ນລ້າສຸດ, ຄິວເພງຂອງທ່ານອາດຈະຖືກລຶບລ້າງ, ຂໍອະໄພໃນຄວາມບໍ່ສະດວກທີ່ເກີດຂື້ນ",
+						"ຖ້າທ່ານມີປັນຫາ, ກະລຸນາຕິດຕໍ່ support@muetube.com",
+					],
+
+					[
+						"Jei susiduriate",
+						"Prieš įdiegdami/atnaujinant į naujausią versiją, jūsų dabartinė dainų eilutė gali būti išvalyta, atsiprašau už sukeltus nepatogumus",
+						"Jei turite kokių nors problemų, susisiekite su support@muetube.com",
+					],
+
+					[
+						"Ja rodas problēmas ar MueTube, lūdzu, lejupielādējiet un instalējiet jaunāko Verion 5.0.9 no www.MueTube.com",
+						"Pirms instalēšanas/jaunināšanas uz jaunāko versiju, jūsu pašreizējā dziesmu rinda var tikt noskaidrota, atvainojiet par sagādātajām neērtībām",
+						"Ja jums ir kādas problēmas, lūdzu, sazinieties ar support@muetube.com",
+					],
+
+					[
+						"Ако доживувате проблеми со MueTube, преземете го и инсталирајте го најновиот Verion 5.0.9 од www.MueTube.com",
+						"Пред да инсталирате/надградите до најновата верзија, вашата моментална редица за песна може да се расчисти, извинете за каква било непријатност предизвикана",
+						"Ако имате какви било проблеми, ве молиме контактирајте го support@muetube.com",
+					],
+
+					[
+						"Хэрэв та MueTube-той холбоотой асуудлыг мэдэрч байгаа бол www.MueTube.com-ээс хамгийн сүүлийн үеийн имэйлийг татаж аваад суулгаж, суулгаж, суулгана уу",
+						"Хамгийн сүүлийн хувилбарыг суулгах / шинэчлэхээс өмнө таны одоогийн дууны дараалал арилах болно",
+						"Хэрэв танд ямар нэгэн асуудал байгаа бол support@muetube.com -тэй холбоо барина уу",
+					],
+
+					[
+						"आपण म्युट्यूबसह समस्या अनुभवत असल्यास, कृपया www.MueTube.com वरून नवीनतम व्हेरियन 5.0.9 डाउनलोड करा आणि स्थापित करा",
+						"आपण नवीनतम आवृत्तीवर स्थापित/श्रेणीसुधारित करण्यापूर्वी, आपली सध्याची गाणे रांग साफ होऊ शकते, कोणत्याही गैरसोयीबद्दल क्षमस्व",
+						"आपल्याकडे काही समस्या असल्यास, कृपया समर्थन@MueTube.com वर संपर्क साधा",
+					],
+
+					[
+						"Jika anda mengalami masalah dengan MueTube, sila muat turun dan pasang Verion 5.0.9 terbaru dari www.MueTube.com",
+						"Sebelum anda memasang/menaik taraf ke versi terkini, barisan lagu semasa anda mungkin dibersihkan, maaf atas kesulitan yang disebabkan",
+						"Sekiranya anda mempunyai masalah, sila hubungi support@muetube.com",
+					],
+
+					[
+						"အကယ်. သင်သည် MueTube နှင့်ပြ issues နာများကိုတွေ့ကြုံခံစားနေပါက ကျေးဇူးပြု. နောက်ဆုံးပေါ် verion 5.0.9 ကို www.MueTube.com မှဒေါင်းလုပ်ဆွဲ။ တပ်ဆင်ပါ",
+						"နောက်ဆုံးဗားရှင်းသို့မတပ်ဆင်မီသင်၏လက်ရှိသီချင်းတန်းစီသည်ရှင်းလင်းရလိမ့်မည်, အဆင်မပြေမှုများအတွက်စိတ်မကောင်းပါ",
+						"သင့်တွင်မည်သည့်ပြ issues နာများရှိပါက ကျေးဇူးပြု. support@muetube.com ကိုဆက်သွယ်ပါ",
+					],
+
+					[
+						"Hvis du opplever problemer med MueTube, kan du laste ned og installere den nyeste Verion 5.0.9 fra www.MueTube.com",
+						"Før du installerer/oppgraderer til den nyeste versjonen, kan den nåværende sangkøen bli ryddet, beklager eventuelle ulemper som er forårsaket",
+						"Hvis du har problemer, kan du kontakte support@muetube.com",
+					],
+
+					[
+						"Als u problemen ondervindt met MueTube, download en installeer dan de nieuwste Verion 5.0.9 van www.MueTube.com",
+						"Voordat u de nieuwste versie installeert/upgrade",
+						"Als u problemen heeft, neem dan contact op met support@muetube.com",
+					],
+
+					[
+						"ਜੇ ਤੁਸੀਂ ਭੌਇਟ ਨਾਲ ਮੁੱਦਿਆਂ ਦਾ ਸਾਹਮਣਾ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ www.MueTube.com ਤੋਂ ਤਾਜ਼ਾ ansion 5.0.9 ਨੂੰ ਡਾਉਨਲੋਡ ਅਤੇ ਸਥਾਪਤ ਕਰੋ",
+						"ਨਵੇਂ ਸੰਸਕਰਣ ਵਿੱਚ / ਅਪਗ੍ਰੇਡ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ, ਤੁਹਾਡੀ ਮੌਜੂਦਾ ਗੀਤ ਕਤਾਰ ਨੂੰ ਸਾਫ ਹੋ ਸਕਦਾ ਹੈ, ਮਾਫ ਕਰਨਾ ਕਿਸੇ ਵੀ ਅਸੁਵਿਧਾ ਲਈ ਮਾਫ ਕਰਨਾ",
+						"ਜੇ ਤੁਹਾਡੇ ਕੋਈ ਮੁੱਦੇ ਹਨ, ਕਿਰਪਾ ਕਰਕੇ support@muetube.com ਨਾਲ ਸੰਪਰਕ ਕਰੋ",
+					],
+
+					[
+						"Jeśli masz problemy z MueTube, pobierz i zainstaluj najnowszą Verion 5.0.9 z www.mueetube.com",
+						"Przed zainstalowaniem/aktualizacją do najnowszej wersji Twoja obecna kolejka utworów może zostać usunięta, przepraszam za wszelkie spowodowane niedogodności",
+						"Jeśli masz jakieś problemy, skontaktuj się z support@mueetube.com",
+					],
+
+					[
+						"Se você estiver enfrentando problemas com o MueTube, faça o download e instale a última verion 5.0.9 em www.MueTube.com",
+						"Antes de instalar/atualizar para a versão mais recente, sua fila de músicas atual pode ser liberada, desculpe por qualquer inconveniente causado",
+						"Se você tiver algum problema, entre em contato com support@muetube.com",
+					],
+
+					[
+						"Dacă întâmpinați probleme cu MueTube, vă rugăm să descărcați și să instalați cel mai recent verion 5.0.9 de pe www.MueTube.com",
+						"Înainte de a instala/face upgrade la cea mai recentă versiune, coada dvs. de melodie curentă poate fi ștersă, îmi pare rău pentru orice inconvenient cauzat",
+						"Dacă aveți probleme, vă rugăm să contactați support@muetube.com",
+					],
+
+					[
+						"Если у вас возникают проблемы с MueTube, пожалуйста, загрузите и установите последнюю Verion 5.0.9 с www.MueTube.com",
+						"Перед установкой/обновлением до последней версии ваша текущая очередь песни может быть очищена, извините за получение неудобства",
+						"Если у вас есть какие -либо проблемы, пожалуйста, свяжитесь с support@muetube.com",
+					],
+
+					[
+						"Ak máte problémy s MueTube, stiahnite si a nainštalujte najnovšie Verion 5.0.9 z www.MueTube.com",
+						"Pred inštaláciou/aktualizáciou na najnovšiu verziu sa váš aktuálny front skladieb môže vyčistiť, prepáč za akékoľvek spôsobené nepríjemnosti",
+						"Ak máte nejaké problémy, kontaktujte support@muetube.com",
+					],
+
+					[
+						"Če imate težave z MueTube, naložite in namestite najnovejšo Verion 5.0.9 z www.MueTube.com",
+						"Preden namestite/nadgradite na najnovejšo različico, se lahko vaša trenutna čakalna vrsta skladb razčisti, žal za morebitne nevšečnosti",
+						"Če imate kakršne koli težave, se obrnite na support@muetube.com",
+					],
+
+					[
+						"Nëse jeni duke përjetuar probleme me MueTube, ju lutemi shkarkoni dhe instaloni Verion 5.0.9 më të fundit nga www.MueTube.com",
+						"Para se të instaloni/azhurnoni në versionin e fundit, radha juaj e tanishme e këngës mund të pastrohet, më vjen keq për çdo shqetësim të shkaktuar",
+						"Nëse keni ndonjë problem, ju lutemi kontaktoni support@muetube.com",
+					],
+
+					[
+						"Ако имате проблема са Муетубеом, преузмите и инсталирајте најновију верион 5.0.9 са www.MueTube.com",
+						"Пре него што се инсталирате / надоградите на најновију верзију, ваша тренутна реда песама може се очистити, извините због непријатности",
+						"Ако имате било каквих проблема, обратите се support@muetube.com",
+					],
+
+					[
+						"Om du upplever problem med MueTube, ladda ner och installera den senaste Verion 5.0.9 från www.MueTube.com",
+						"Innan du installerar/uppgraderar till den senaste versionen kan din nuvarande låtkö bli rensad, ledsen för eventuella besvär som orsakats",
+						"Om du har några problem, vänligen kontakta support@muetube.com",
+					],
+
+					[
+						"Ikiwa unakabiliwa na maswala na MueTube, tafadhali pakua na usakinishe Verion 5.0.9 ya hivi karibuni kutoka www.MueTube.com",
+						"Kabla ya kusanikisha/kusasisha kwa toleo la hivi karibuni, foleni yako ya wimbo wa sasa inaweza kufutwa, samahani kwa usumbufu wowote unaosababishwa",
+						"Ikiwa una maswala yoyote, tafadhali wasiliana na support@muetube.com",
+					],
+
+					[
+						"మీరు ముయెట్యూబ్‌తో సమస్యలను ఎదుర్కొంటుంటే, దయచేసి www.MueTube.com నుండి తాజా వెరియన్ 5.0.9 ను డౌన్‌లోడ్ చేసి ఇన్‌స్టాల్ చేయండి",
+						"మీరు తాజా సంస్కరణకు ఇన్‌స్టాల్/అప్‌గ్రేడ్ చేయడానికి ముందు, మీ ప్రస్తుత పాట క్యూ క్లియర్ కావచ్చు, ఏదైనా అసౌకర్యానికి క్షమించండి",
+						"మీకు ఏవైనా సమస్యలు ఉంటే, దయచేసి support@muetube.com ని సంప్రదించండి",
+					],
+
+					[
+						"หากคุณกำลังประสบปัญหาเกี่ยวกับ MueTube โปรดดาวน์โหลดและติดตั้ง Verion 5.0.9 ล่าสุดจาก www.MueTube.com",
+						"ก่อนที่คุณจะติดตั้ง/อัปเกรดเป็นเวอร์ชันล่าสุดคิวเพลงปัจจุบันของคุณอาจถูกล้างขออภัยในความไม่สะดวกที่เกิดขึ้น",
+						"หากคุณมีปัญหาใด ๆ โปรดติดต่อ support@muetube.com",
+					],
+
+					[
+						"MueTube ile ilgili sorunlar yaşıyorsanız, lütfen www.MueTube.com adresinden en son 5.0.9 Verion'u indirin ve yükleyin.",
+						"En son sürüme yüklemeden/yükseltmeden önce, mevcut şarkı kuyruğunuz temizlenebilir, neden olduğu herhangi bir rahatsızlıktan dolayı özür dilerim",
+						"Herhangi bir sorununuz varsa, lütfen support@muetube.com ile iletişime geçin.",
+					],
+
+					[
+						"Якщо у вас виникають проблеми з MueTube, завантажте та встановіть останній Verion 5.0.9 з www.MueTube.com",
+						"Перш ніж встановити/оновити до останньої версії, ваша поточна черга пісні може бути очищена, вибачте за будь -які незручності",
+						"Якщо у вас є якісь проблеми, зв'яжіться з support@muetube.com",
+					],
+
+					[
+						"Agar siz metube bilan muammolarga duch kelsangiz, iltimos, www.MueTube.com saytidan eng so'nggi veronni yuklab oling va o'rnating",
+						"So'nggi versiyani o'rnatish / yangilashdan oldin, sizning hozirgi qo'shiqingiz navbatingiz tozalanishi mumkin, noqulayliklar uchun uzr",
+						"Agar sizda biron bir muammo bo'lsa, iltimos, qo'llab-quvvatlash@MueTube.com bilan bog'laning",
+					],
+
+					[
+						"Nếu bạn đang gặp sự cố với MueTube, vui lòng tải xuống và cài đặt Verion 5.0.9 mới nhất từ www.MueTube.com",
+						"Trước khi bạn cài đặt/nâng cấp lên phiên bản mới nhất, hàng đợi bài hát hiện tại của bạn có thể bị xóa, xin lỗi vì bất kỳ sự bất tiện nào đã gây ra",
+						"Nếu bạn có bất kỳ vấn đề nào, xin vui lòng liên hệ với support@muetube.com",
+					],
+
+					[
+						"如果您遇到MueTube问题，请下载并从www.MueTube.com下载并安装最新的时间5.0.9",
+						"在您安装/升级到最新版本之前，您当前的歌曲队列可能会被清除，不便之处。",
+						"如果您有任何问题，请联系support@muetube.com",
+					],
+				];
+
+				if (doesJSBridgeExist()) {
+					if (indexOfLanguage == -1) {
+						javascript: AndroidImpMessage.showCustomMessage(
+							"505download",
+							"",
+							"If you are experiencing issues with MueTube, please download and install the latest verion 5.0.9 from www.MueTube.com<br><br>Before you install/upgrade to the latest version, your current song queue may get cleared, sorry for any inconvenience caused<br><br>If you have any issues, please contact support@muetube.com",
+							"",
+							"",
+							"OK",
+							false,
+							"",
+							"",
+							3,
+							0
+						);
+					} else {
+						javascript: AndroidImpMessage.showCustomMessage(
+							"505download",
+							"",
+							messages[indexOfLanguage][0] +
+								"<br><br>" +
+								messages[indexOfLanguage][1] +
+								"<br><br>" +
+								messages[indexOfLanguage][2],
+							"",
+							"",
+							"OK",
+							false,
+							"",
+							"",
+							3,
+							0
+						);
+					}
+				} else {
+					console.log(
+						"If you are experiencing issues with MueTube, please download and install the latest verion 5.0.9 from www.MueTube.com<br><br>Before you install/upgrade to the latest version, your current song queue may get cleared, sorry for any inconvenience caused<br><br>If you have any issues, please contact support@muetube.com"
+					);
+				}
+			}
+		</script>
+	</body>
+</html>
